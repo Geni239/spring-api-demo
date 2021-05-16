@@ -1,0 +1,56 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="copy">
+<title>Add NEW ORDER</title>
+<meta
+	content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no"
+	id="Viewport" name="viewport" />
+
+<!-- Bootstrap -->
+<link rel="stylesheet" media="screen"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" />
+
+<link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+
+	<div class="container" align="center">
+		<hr>
+		<h2>Creating New Order</h2>
+		<p>Please (assume) to fill all the input with correct data</p>
+		<form th:action="@{/saveNewOrder}" th:object="${order}" method="POST">
+			<label for="username">Customer Name</label>
+			 <input type="text" id="username" name="username" th:field="*{uName}" placeholder="Enter Customer Name"
+				class="form-control mb-4 col-4" required="required"> <br>
+			<label for="productname">Product Name</label>
+			 <input type="text" id="productname" name="productname" th:field="*{iName}"
+				placeholder="Enter Product Name" class="form-control mb-4 col-4">
+				
+				<br>
+				<label for="placedon">Order Placement Date</label>
+			<input type="date" id="placedon" name="placedon" th:field="*{orderPlacedOn}" placeholder="Date"
+				class="form-control mb-4 col-4">
+				<br>
+				<label for="description">Order Description</label>
+				<input type="text" id="description" name="description"
+				th:field="*{orderDescription}" placeholder="Product Detail"
+				class="form-control mb-4 col-4">
+				<br>
+				<label for="price">Order Price/Total</label>
+				 <input type="text" id="price" name="price"
+				th:field="*{orderTotal}" placeholder="total Amount"
+				class="form-control mb-4 col-4">
+				<br>
+			<button type="submit" class="btn btn-info col-2">Save Order
+			</button>
+		</form>
+
+	</div>
+
+
+</body>
+</html>
